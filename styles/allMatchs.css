@@ -153,3 +153,14 @@
         margin-left: 30px;
     }
 }
+@media screen and (max-width: 450px){
+    #allMatchs h2{
+        margin-left: 0px;
+    }
+    .matchsCardsContainer{
+        width: 80%;
+    }
+    .matchCardsContainer{
+        width: 200px;
+    }
+}

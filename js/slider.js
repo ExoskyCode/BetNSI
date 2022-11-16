@@ -42,3 +42,6 @@ function query(media) {
     nextSlideBtn.addEventListener("click", nextSlideMobile);
   }
 }
+let media = window.matchMedia("(max-width: 1200px)");
+query(media);
+media.addEventListener('load', query);

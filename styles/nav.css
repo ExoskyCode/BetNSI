@@ -22,10 +22,6 @@ nav{
     font-family: var(--primaryFont);
     font-size: 18px;
 }
-.container--nav .active{
-    color: var(--hoverLink);
-    font-weight: 800;
-}
 .container--nav svg{
     width: 55px;
     height: 55px;
@@ -70,7 +66,7 @@ nav{
     align-items: center;
     position: absolute;
     left: 120px;
-    top: 50px;
+    top: -120px;
     z-index: 10000;
 }
 .navBtn span{
@@ -146,7 +142,7 @@ nav{
 }
 @media screen and (max-width: 1200px){
     nav{
-        margin: 40px 100px 0px 100px;
+        margin: -130px 100px 0px 100px;
     }
     .container--nav .left--nav{
         left: 90px;
@@ -165,7 +161,7 @@ nav{
 }
 @media screen and (max-width: 755px){
     nav{
-        margin: 40px 50px 0px 50px;
+        margin: -130px 50px 0px 50px;
     }
     .container--nav .right--nav{
         right: 60px;
@@ -176,12 +172,17 @@ nav{
 }
 @media screen and (max-width: 520px){
     nav{
-        margin: 40px 10px 0px 10px;
+        margin: -130px 10px 0px 10px;
     }
     .container--nav .right--nav{
         right: 10px;
     }
     .navBtn{
         left: 20px;
+    }
+}
+@media screen and (max-width: 450px){
+    nav{
+        margin: -130px 0px 0px 0px;
     }
 }

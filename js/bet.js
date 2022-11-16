@@ -1,11 +1,10 @@
 const betItems = document.querySelectorAll(".currentCard");
 const nbBet = betItems.length;
-const nextBet = document.querySelectorAll(".nextBet");
+const nextBet = document.querySelector(".nextBet");
 let betCount = 0;
 
 function highQueryBet(highMediaBet) {
   if (highMediaBet.matches) {
-
     function nextBetMobile() {
       betItems[betCount].classList.remove("activeBet");
 
@@ -17,14 +16,12 @@ function highQueryBet(highMediaBet) {
       betItems[betCount].classList.add("activeBet");
       betItems[betCount + 1].classList.add("activeBet");
     }
-    nextBet.forEach((btn) => {
-      btn.addEventListener("click", nextBetMobile);
-    });
+    nextBet.addEventListener("click", nextBetMobile);
   }
 }
 let highMediaBet = window.matchMedia("(min-width: 1201px)");
 highQueryBet(highMediaBet);
-highMediaBet.addEventListener('load', highQueryBet);
+highMediaBet.addEventListener("load", highQueryBet);
 
 function querybet(mediaBet) {
   if (mediaBet.matches) {
@@ -41,13 +38,10 @@ function querybet(mediaBet) {
       }
       betItems[betCount].classList.add("activeBet");
     }
-
-    nextBet.forEach((btn) => {
-      btn.addEventListener("click", nextBetMobile);
-    });
+    nextBet.addEventListener("click", nextBetMobile);
   }
 }
 
 let mediaBet = window.matchMedia("(max-width: 1200px)");
 querybet(mediaBet);
-mediaBet.addEventListener('load', querybet);
+mediaBet.addEventListener("load", querybet);
