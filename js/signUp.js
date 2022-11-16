@@ -3,7 +3,6 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
-import { getFireStore, collection, getDocs, addDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyClhfeQ5j5Av19TIb3LwcW8NZg4borQMPg",
