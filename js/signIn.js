@@ -28,7 +28,8 @@ signIn.addEventListener("click", () => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      window.location.href = "http://127.0.0.1:5500/index.html?"; // Regarder Eden et faire UI design des alerts
+      window.location.href = "http://127.0.0.1:5500/index.html?"; 
+      // Regarder Eden et faire UI design des alerts
     })
     .catch((error) => {
       console.error("Error adding document: ", error);

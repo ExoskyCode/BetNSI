@@ -1,8 +1,15 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import {
   getAuth,
   createUserWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  collection,
+  addDoc,
+} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyClhfeQ5j5Av19TIb3LwcW8NZg4borQMPg",
@@ -14,12 +21,12 @@ const firebaseConfig = {
   measurementId: "G-JVXWMB5FPP",
 };
 
-// Initialize Firebase
-
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const auth = getAuth();
+const db = getFirestore(app);
 
 const signUp = document.querySelector(".signUp");
+let statusLog = false;
 
 signUp.addEventListener("click", () => {
   const pseudo = document.getElementById("pseudo").value;
@@ -29,8 +36,21 @@ signUp.addEventListener("click", () => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      window.location.href = "http://127.0.0.1:5500/signIn.html?";
-
+      statusLog = true;
+      if (statusLog = true){
+        async function addUserFireStore() {
+          let docRef = await addDoc(collection(db, "Users"), {
+            name: `${pseudo}`,
+            email: `${email}`,
+            password: `${password}`,
+            points: `50`
+          });
+        }
+        addUserFireStore();
+      }
+      setTimeout(() => {
+        window.location.href = "http://127.0.0.1:5500/signIn.html?"; 
+      }, 2500);
       // Regarder Eden et faire UI design des alerts
     })
     .catch((error) => {
@@ -38,15 +58,6 @@ signUp.addEventListener("click", () => {
       const errorCode = error.code;
       const errorMessage = error.message;
       alert(errorMessage);
+      statusLog = false;
     });
-});
-
-firebase.initializeApp(firebaseConfig);
-
-const db = getFirestore();
-const colRef = collection(db, "books");
-
-addDoc(colRef, {
-  name: "MyBoke",
-  author: "Victor Hugo"
 });
