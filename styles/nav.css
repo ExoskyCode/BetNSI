@@ -18,6 +18,9 @@ nav{
 .container--nav ul{
     display: flex;
 }
+#logOut{
+    cursor: pointer;
+}
 .container--nav ul li{
     font-family: var(--primaryFont);
     font-size: 18px;
@@ -68,6 +71,12 @@ nav{
     left: 120px;
     top: -120px;
     z-index: 10000;
+}
+.leftLink{
+    cursor: pointer;
+}
+.itemLeftBurger{
+    cursor: pointer;
 }
 .navBtn span{
     display: block;

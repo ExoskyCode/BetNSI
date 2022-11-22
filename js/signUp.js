@@ -36,26 +36,29 @@ signUp.addEventListener("click", () => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
+      const uid = user.uid;
       statusLog = true;
-      if ((statusLog = true)) {
+      if (statusLog === true) {
         async function addUserFireStore() {
-          let docRef = await addDoc(collection(db, "Users"), {
+          await setDoc(doc(db, "Users", uid), {
             name: `${pseudo}`,
             email: `${email}`,
             password: `${password}`,
             points: 50,
-            id_paris: {
-              id_match: {
-                score_joueur: "4 - 1",
-                score_match: "2-0",
-              },
-            },
+            paris: {
+              paris1: {
+                id: "",
+                result: "",
+                bet: "",
+                time: "",
+              }
+            }
           });
         }
         addUserFireStore();
       }
       setTimeout(() => {
-        window.location.href = "http://127.0.0.1:5500/signIn.html?";
+        window.location.href = "http://localhost:5501/signIn.html?";
       }, 2500);
       // Regarder Eden et faire UI design des alerts
     })
